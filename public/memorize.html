@@ -1,0 +1,501 @@
+     1|<!DOCTYPE html>
+     2|<html lang="zh-CN">
+     3|<head>
+     4|<meta charset="UTF-8">
+     5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6|<title>期货投资分析考试 · 备考中心 · 考前背诵</title>
+     7|<style>/* ===== Exam Template - Universal CSS ===== */
+     8|/* 适用于所有备考站点：N1/期货/博士 */
+     9|
+    10|:root {
+    11|  --bg: #f0f2f5;
+    12|  --card-bg: #fff;
+    13|  --text: #333;
+    14|  --text-light: #888;
+    15|  --text-lighter: #aaa;
+    16|  --border: #e8e8e8;
+    17|  --hover: #f8f9fa;
+    18|  --shadow: rgba(0,0,0,0.08);
+    19|  --shadow-hover: rgba(0,0,0,0.12);
+    20|  --tag-bg: #f0f2f5;
+    21|  --tag-text: #666;
+    22|  --primary: #e74c3c;
+    23|  --primary-light: #fde8e8;
+    24|  --success: #2ecc71;
+    25|  --success-bg: #e8f8f0;
+    26|  --wrong: #e74c3c;
+    27|  --wrong-bg: #fde8e8;
+    28|  --header-from: #1a1a2e;
+    29|  --header-mid: #16213e;
+    30|  --header-to: #0f3460;
+    31|  --header-text: #f1f5f9;
+    32|  --header-sub: #aab8c2;
+    33|  --back-top-bg: #1a1a2e;
+    34|}
+    35|
+    36|body.dark {
+    37|  --bg: #12122a;
+    38|  --card-bg: #1e1e3a;
+    39|  --text: #d0d0e0;
+    40|  --text-light: #999;
+    41|  --text-lighter: #777;
+    42|  --border: #2a2a4a;
+    43|  --hover: #252545;
+    44|  --shadow: rgba(0,0,0,0.3);
+    45|  --shadow-hover: rgba(0,0,0,0.4);
+    46|  --tag-bg: #2a2a4a;
+    47|  --tag-text: #aaa;
+    48|  --primary: #e74c3c;
+    49|  --primary-light: #2a1a1a;
+    50|  --success: #27ae60;
+    51|  --success-bg: #1a2e22;
+    52|  --wrong: #e74c3c;
+    53|  --wrong-bg: #2a1a1a;
+    54|  --back-top-bg: #0f3460;
+    55|}
+    56|
+    57|* { margin: 0; padding: 0; box-sizing: border-box; }
+    58|body {
+    59|  font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+    60|  background: var(--bg);
+    61|  color: var(--text);
+    62|  transition: background 0.3s, color 0.3s;
+    63|  line-height: 1.6;
+    64|}
+    65|
+    66|/* ===== Header ===== */
+    67|.header {
+    68|  background: linear-gradient(135deg, var(--header-from), var(--header-mid), var(--header-to));
+    69|  color: var(--header-text);
+    70|  padding: 40px 20px;
+    71|  text-align: center;
+    72|  position: relative;
+    73|}
+    74|.header h1 { font-size: 1.8em; margin-bottom: 10px; }
+    75|.header p { color: var(--header-sub); font-size: 1em; margin-bottom: 8px; }
+    76|.header .subtitle { font-size: 0.9em; color: #7b8fa1; }
+    77|
+    78|/* ===== Theme Button ===== */
+    79|.theme-btn {
+    80|  position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+    81|  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25);
+    82|  color: rgba(255,255,255,.7); font-size: 1em; padding: 6px 12px;
+    83|  border-radius: 8px; cursor: pointer; transition: all 0.2s;
+    84|}
+    85|.theme-btn:hover { color: #fff; background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.4); }
+    86|
+    87|/* ===== Back Link ===== */
+    88|.back-link {
+    89|  position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+    90|  color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px;
+    91|  padding: 6px 12px; border: 1px solid rgba(255,255,255,.2);
+    92|  border-radius: 8px; transition: all 0.2s;
+    93|}
+    94|.back-link:hover { color: #fff; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.4); }
+    95|
+    96|/* ===== Container ===== */
+    97|.container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+    98|
+    99|/* ===== Entry Cards (Index) ===== */
+   100|.entries { display: flex; flex-direction: column; gap: 20px; }
+   101|.entry {
+   102|  background: var(--card-bg); border-radius: 16px; padding: 30px;
+   103|  text-align: center; box-shadow: 0 4px 16px var(--shadow);
+   104|  transition: all 0.3s; border: 2px solid transparent;
+   105|  cursor: pointer; text-decoration: none; color: var(--text);
+   106|}
+   107|.entry:hover { transform: translateY(-4px); box-shadow: 0 8px 32px var(--shadow-hover); border-color: var(--primary); }
+   108|.entry .icon { font-size: 2.5em; margin-bottom: 12px; display: block; }
+   109|.entry h2 { font-size: 1.4em; margin-bottom: 8px; font-weight: 600; }
+   110|.entry .desc { color: var(--text-light); font-size: 0.95em; line-height: 1.6; margin-bottom: 12px; }
+   111|.entry .stats { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+   112|.entry .stats span { background: var(--tag-bg); color: var(--tag-text); padding: 4px 12px; border-radius: 12px; font-size: 0.85em; }
+   113|
+   114|/* ===== Controls (Search + Filter) ===== */
+   115|.controls { padding: 16px 20px; max-width: 900px; margin: 0 auto; position: sticky; top: 0; z-index: 100; background: var(--bg); }
+   116|.search-box {
+   117|  width: 100%; padding: 12px 16px; border-radius: 12px;
+   118|  border: 1px solid var(--border); background: var(--card-bg);
+   119|  color: var(--text); font-size: 15px; outline: none;
+   120|}
+   121|.search-box:focus { border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,.15); }
+   122|.filter-btns { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+   123|.filter-btn {
+   124|  padding: 6px 16px; border-radius: 8px; border: 1px solid var(--border);
+   125|  background: var(--card-bg); color: var(--text-light); cursor: pointer; font-size: 13px;
+   126|  transition: all 0.2s;
+   127|}
+   128|.filter-btn.active { background: #3498db; color: #fff; border-color: #3498db; }
+   129|.filter-btn:hover:not(.active) { background: var(--hover); }
+   130|
+   131|/* ===== Chapter/Section Cards ===== */
+   132|.chapter-card { margin-bottom: 20px; }
+   133|.chapter-header {
+   134|  background: var(--card-bg); border-radius: 12px; padding: 16px 20px;
+   135|  cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+   136|  box-shadow: 0 2px 8px var(--shadow); border: 1px solid var(--border);
+   137|  transition: all 0.2s;
+   138|}
+   139|.chapter-header:hover { box-shadow: 0 4px 16px var(--shadow-hover); }
+   140|.chapter-header .ch-title { font-size: 1.15em; font-weight: 600; }
+   141|.chapter-header .ch-arrow { transition: transform 0.2s; color: var(--text-light); }
+   142|.chapter-card.open .ch-arrow { transform: rotate(90deg); }
+   143|.chapter-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+   144|.chapter-card.open .chapter-body { max-height: 200000px; }
+   145|
+   146|.section-card {
+   147|  background: var(--card-bg); border-radius: 10px; margin: 12px 0;
+   148|  border: 1px solid var(--border); overflow: hidden;
+   149|}
+   150|.section-header {
+   151|  padding: 14px 18px; cursor: pointer; display: flex;
+   152|  justify-content: space-between; align-items: center;
+   153|  border-bottom: 1px solid var(--border);
+   154|}
+   155|.section-header:hover { background: var(--hover); }
+   156|.section-header .sec-title { font-weight: 600; font-size: 1em; }
+   157|.section-header .sec-arrow { transition: transform 0.2s; color: var(--text-light); }
+   158|.section-card.open .sec-arrow { transform: rotate(90deg); }
+   159|.section-body { display: none; padding: 16px 18px; }
+   160|.section-card.open .section-body { display: block; }
+   161|
+   162|/* ===== Content Blocks ===== */
+   163|.content-block { margin-bottom: 16px; }
+   164|.content-block h4 { color: var(--primary); margin-bottom: 8px; font-size: 0.95em; }
+   165|.content-block p, .content-block li { line-height: 1.8; color: var(--text); }
+   166|.formula-box {
+   167|  background: var(--hover); border-left: 4px solid #3498db;
+   168|  padding: 12px 16px; border-radius: 6px; margin: 8px 0;
+   169|  font-family: "Courier New", monospace; font-size: 0.95em;
+   170|}
+   171|.tip-box {
+   172|  background: var(--primary-light); border-left: 4px solid var(--primary);
+   173|  padding: 12px 16px; border-radius: 6px; margin: 8px 0;
+   174|  font-size: 0.9em;
+   175|}
+   176|
+   177|/* ===== Question Blocks ===== */
+   178|.q-block {
+   179|  background: var(--card-bg); border: 1px solid var(--border);
+   180|  border-radius: 10px; padding: 16px; margin-bottom: 12px;
+   181|}
+   182|.q-text { font-weight: 500; margin-bottom: 12px; line-height: 1.6; }
+   183|.opts { display: flex; flex-direction: column; gap: 8px; }
+   184|.opt-btn {
+   185|  padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px;
+   186|  background: var(--card-bg); color: var(--text); cursor: pointer;
+   187|  text-align: left; transition: all 0.2s; font-size: 0.95em;
+   188|}
+   189|.opt-btn:hover:not(.disabled) { background: var(--hover); border-color: #3498db; }
+   190|.opt-btn.selected { background: rgba(52,152,219,0.15); color: #3498db; border-color: #3498db; }
+   191|.opt-btn.correct { background: var(--success-bg) !important; color: var(--success) !important; border-color: var(--success) !important; }
+   192|.opt-btn.wrong { background: var(--wrong-bg) !important; color: var(--wrong) !important; border-color: var(--wrong) !important; }
+   193|.opt-btn.disabled { cursor: default; opacity: 0.7; }
+   194|
+   195|.show-ans-btn {
+   196|  background: var(--primary); color: #fff; border: none;
+   197|  padding: 6px 16px; border-radius: 8px; font-size: 0.85em;
+   198|  cursor: pointer; margin-top: 10px; transition: all 0.2s;
+   199|}
+   200|.show-ans-btn:hover { opacity: 0.85; }
+   201|
+   202|.explanation {
+   203|  border-top: 1px solid var(--border); padding-top: 12px; margin-top: 12px;
+   204|  display: none; flex-wrap: wrap; gap: 8px; align-items: center;
+   205|  font-size: 0.9em; color: var(--text-light);
+   206|}
+   207|.explanation.show { display: flex; }
+   208|
+   209|/* ===== Stats Bar ===== */
+   210|.stats-bar {
+   211|  display: flex; gap: 20px; justify-content: center; padding: 12px;
+   212|  background: var(--card-bg); border-radius: 10px; margin-bottom: 16px;
+   213|  box-shadow: 0 2px 8px var(--shadow);
+   214|}
+   215|.stat-item { text-align: center; }
+   216|.stat-item .stat-label { font-size: 0.8em; color: var(--text-light); }
+   217|.stat-item .stat-val { font-size: 1.3em; font-weight: 700; color: var(--primary); }
+   218|
+   219|/* ===== Back to Top ===== */
+   220|.back-top {
+   221|  position: fixed; right: 20px; bottom: 24px;
+   222|  width: 44px; height: 44px; border-radius: 50%;
+   223|  border: none; background: var(--back-top-bg); color: #fff;
+   224|  font-size: 20px; cursor: pointer; opacity: 0;
+   225|  transition: opacity 0.3s; box-shadow: 0 2px 12px rgba(0,0,0,.3);
+   226|  z-index: 999;
+   227|}
+   228|
+   229|/* ===== Footer ===== */
+   230|.footer { text-align: center; padding: 20px; color: var(--text-light); font-size: 0.85em; }
+   231|
+   232|/* ===== Responsive ===== */
+   233|@media(max-width: 600px) {
+   234|  .header h1 { font-size: 1.4em; }
+   235|  .container { padding: 20px 12px; }
+   236|  .entry { padding: 20px; }
+   237|  .theme-btn { right: 12px; padding: 4px 8px; font-size: 14px; }
+   238|  .back-link { left: 12px; padding: 4px 8px; font-size: 12px; }
+   239|  .back-top { right: 12px; bottom: 16px; width: 38px; height: 38px; font-size: 18px; }
+   240|}
+   241|</style>
+   242|</head>
+   243|<body>
+   244|<div class="header">
+   245|<a class="back-link" href="index.html">← 返回</a>
+   246|<button class="theme-btn">🌙 主题</button>
+   247|<h1>🎯 考前背诵</h1>
+   248|<p>核心公式 · 易错提醒 · 快速回顾</p>
+   249|</div>
+   250|<div class="container">
+   251|<div style="text-align:center;margin-bottom:16px;font-size:0.9em;color:var(--text-light)">
+   252|共 42 个考点
+   253|<button onclick="expandAll()" style="margin-left:12px;padding:4px 12px;border-radius:6px;border:1px solid var(--border);background:var(--card-bg);color:var(--text);cursor:pointer">▼ 全部展开</button>
+   254|<button onclick="collapseAll()" style="margin-left:8px;padding:4px 12px;border-radius:6px;border:1px solid var(--border);background:var(--card-bg);color:var(--text);cursor:pointer">▲ 全部收起</button>
+   255|</div>
+   256|
+   257|<div class="section-card">
+   258|<div class="section-header" onclick="toggleSection(this)">
+   259|<span class="sec-title">1.1 供需平衡表分析</span>
+   260|<span class="sec-arrow">▶</span>
+   261|</div>
+   262|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>平衡表恒等式</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>期末库存</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>期末库存 = 800+3500+9000-12000-600 = 700万吨（累库，偏空）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>去库存 ≠ 必然上涨：如果去库存是因需求萎缩（被动去库），价格反而可能下跌。 供需缺口为零不代表价格稳定，需结合库存绝对水平综合判断。</div></div>
+   263|</div>
+   264|<div class="section-card">
+   265|<div class="section-header" onclick="toggleSection(this)">
+   266|<span class="sec-title">1.2 成本端影响因素</span>
+   267|<span class="sec-arrow">▶</span>
+   268|</div>
+   269|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>成本支撑不是绝对底部，极端行情下价格可能跌破成本一段时间（如2015年钢铁行业）。</div></div>
+   270|</div>
+   271|<div class="section-card">
+   272|<div class="section-header" onclick="toggleSection(this)">
+   273|<span class="sec-title">1.3 基差交易与基差定价</span>
+   274|<span class="sec-arrow">▶</span>
+   275|</div>
+   276|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>基差公式（必记！）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>现货亏损：(68000-70000)= -2000元/吨 期货盈利：(71000-69500)= 1500元/吨 净损益：-500元/吨（基差走弱500，空头套保不利）</div></div>
+   277|</div>
+   278|<div class="section-card">
+   279|<div class="section-header" onclick="toggleSection(this)">
+   280|<span class="sec-title">1.4 库存风险管理</span>
+   281|<span class="sec-arrow">▶</span>
+   282|</div>
+   283|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>期货盈利 = 4350-3750 = 600元/吨 实际售价 = 3800+600 = 4400元/吨</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>虚拟库存无实物凭证、不占仓储，但需追加保证金。 实际库存有仓单、有仓储成本。</div></div>
+   284|</div>
+   285|<div class="section-card">
+   286|<div class="section-header" onclick="toggleSection(this)">
+   287|<span class="sec-title">1.5 仓单串换与质押</span>
+   288|<span class="sec-arrow">▶</span>
+   289|</div>
+   290|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>串换费用 = |串出厂库升贴水| + 现货价差 + 生产计划调整费</div></div>
+   291|</div>
+   292|<div class="section-card">
+   293|<div class="section-header" onclick="toggleSection(this)">
+   294|<span class="sec-title">2.1 持有成本理论</span>
+   295|<span class="sec-arrow">▶</span>
+   296|</div>
+   297|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>连续复利形式</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>离散形式</div></div>
+   298|</div>
+   299|<div class="section-card">
+   300|<div class="section-header" onclick="toggleSection(this)">
+   301|<span class="sec-title">2.3 Black-Scholes-Merton模型</span>
+   302|<span class="sec-arrow">▶</span>
+   303|</div>
+   304|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>欧式看涨期权</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>d₁ = [ln(S₀/K) + (r + σ²/2)T] / (σ√T) d₂ = d₁ − σ√T</div></div>
+   305|</div>
+   306|<div class="section-card">
+   307|<div class="section-header" onclick="toggleSection(this)">
+   308|<span class="sec-title">2.4 二叉树定价模型</span>
+   309|<span class="sec-arrow">▶</span>
+   310|</div>
+   311|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>风险中性概率</div></div>
+   312|</div>
+   313|<div class="section-card">
+   314|<div class="section-header" onclick="toggleSection(this)">
+   315|<span class="sec-title">描述性统计</span>
+   316|<span class="sec-arrow">▶</span>
+   317|</div>
+   318|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i = \frac{x_1 + x_2 + \cdots + x_n}{n}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\bar{x} = \frac{2\% + (-1\%) + 3\% + 0.5\% + (-0.5\%)}{5} = \frac{4\%}{5} = 0.8\%$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>均值对极端值（异常值）非常敏感。比如上述数据中如果有一个异常值20%，均值会被严重拉高，不能代表&quot;典型&quot;水平</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>在期货分析中，计算平均收益率时常用&quot;几何平均&quot;而非&quot;算术平均&quot;，因为收益率是相乘而非相加的关系</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>考试中注意区分&quot;分组数据的中位数&quot;求法——需要先找到中位数所在的组，再用插值公式</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>当数据分布不对称时，中位数比均值更能代表数据的集中趋势</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>注意区分总体方差（分母$n$）和样本方差（分母$n-1$），考试经常考这个细节</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>方差单位是原始数据单位的平方，解释时不太直观，所以常用标准差</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>在期货风险管理中，年化标准差 = 日标准差 × $\sqrt{252}$（假设一年252个交易日）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>考试中经常考&quot;金融资产收益率分布特征&quot;——通常是左偏、尖峰厚尾</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>注意区分不同软件的峰度定义：Excel的KURT函数返回的是超额峰度（峰度−3）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>偏度和峰度的计算公式分母究竟是$n$还是$n-1$，不同教材有差异，考试以指定教材为准</div></div>
+   319|</div>
+   320|<div class="section-card">
+   321|<div class="section-header" onclick="toggleSection(this)">
+   322|<span class="sec-title">推断性统计</span>
+   323|<span class="sec-arrow">▶</span>
+   324|</div>
+   325|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\bar{x} \pm t_{\alpha/2}(n-1) \cdot \frac{s}{\sqrt{n}}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$F = \frac{s_1^2}{s_2^2}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>大样本（$n \geq 30$）时，无论总体方差是否已知，都可以用Z分布近似</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>小样本且总体方差未知时，必须用t分布</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>注意区分&quot;置信区间&quot;和&quot;预测区间&quot;——预测区间更宽，因为它包含了单个新观测值的额外不确定性</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>p值不是原假设为真的概率！这是最常见的误解</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>$\alpha$是单次检验中犯第一类错误（弃真错误）的概率</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>第二类错误（取伪错误）记为$\beta$，检验功效 = $1-\beta$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>显著性水平越小，越不容易拒绝原假设，但犯第二类错误的概率越大</div></div>
+   326|</div>
+   327|<div class="section-card">
+   328|<div class="section-header" onclick="toggleSection(this)">
+   329|<span class="sec-title">一元线性回归</span>
+   330|<span class="sec-arrow">▶</span>
+   331|</div>
+   332|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\min_{\beta_0, \beta_1} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2 = \min_{\beta_0, \beta_1} \sum_{i=1}^{n} (Y_i - \beta_0 - \beta_1 X_i)^2$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\frac{\partial}{\partial \beta_0}: -2\sum_{i=1}^{n}(Y_i - \beta_0 - \beta_1 X_i) = 0$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\frac{\partial}{\partial \beta_1}: -2\sum_{i=1}^{n}(Y_i - \beta_0 - \beta_1 X_i)X_i = 0$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\hat{\beta}_1 = \frac{\sum_{i=1}^{n}(X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^{n}(X_i - \bar{X})^2} = \frac{Cov(X,Y)}{Var(X)}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\hat{\beta}_1 = \frac{(10-20)(2-4) + (15-20)(3-4) + (20-20)(5-4) + (25-20)(4-4) + (30-20)(6-4)}{(10-20)^2 + (15-20)^2 + (20-20)^2 + (25-20)^2 + (30-20)^2}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$= \frac{(-10)(-2) + (-5)(-1) + (0)(1) + (5)(0) + (10)(2)}{100 + 25 + 0 + 25 + 100}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$= \frac{20 + 5 + 0 + 0 + 20}{250} = \frac{45}{250} = 0.18$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\hat{\beta}_0 = 4 - 0.18 \times ... [truncated]
+   333|</div>
+   334|<div class="section-card">
+   335|<div class="section-header" onclick="toggleSection(this)">
+   336|<span class="sec-title">多元线性回归</span>
+   337|<span class="sec-arrow">▶</span>
+   338|</div>
+   339|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + \varepsilon_i$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$Y = X\boldsymbol{\beta} + \boldsymbol{\varepsilon}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\hat{\boldsymbol{\beta}} = (X'X)^{-1}X'Y$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$VIF_j = \frac{1}{1 - R_j^2}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$VIF_1 = \frac{1}{1 - 0.85} = \frac{1}{0.15} \approx 6.67$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$DW = \frac{\sum_{t=2}^{n}(e_t - e_{t-1})^2}{\sum_{t=1}^{n}e_t^2}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>多重共线性是&quot;程度问题&quot;不是&quot;有无问题&quot;——几乎所有经济数据都存在一定程度的多重共线性</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>多重共线性不影响OLS的无偏性，但影响有效性（方差变大）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>VIF的临界值没有统一标准，考试中通常以5或10为界</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>异方差在截面数据（cross-sectional data）中很常见</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>异方差的存在使得OLS不再是&quot;最佳线性无偏估计量&quot;（BLUE）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>使用&quot;稳健标准误&quot;是最常用的修正方法</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin... [truncated]
+   340|</div>
+   341|<div class="section-card">
+   342|<div class="section-header" onclick="toggleSection(this)">
+   343|<span class="sec-title">时间序列分析</span>
+   344|<span class="sec-arrow">▶</span>
+   345|</div>
+   346|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$Y_t = Y_{t-1} + \varepsilon_t$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\Delta Y_t = \delta Y_{t-1} + \varepsilon_t$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\Delta Y_t = Y_t - Y_{t-1}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\Delta^2 Y_t = \Delta(\Delta Y_t) = \Delta Y_t - \Delta Y_{t-1} = Y_t - 2Y_{t-1} + Y_{t-2}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$Q = n(n+2)\sum_{k=1}^{m}\frac{\hat{\rho}_k^2}{n-k}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>ADF检验的临界值不是t分布，而是Dickey-Fuller分布（更负）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>滞后阶数$p$的选择很重要——太少会导致自相关，太多会降低检验功效</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>ADF检验对趋势和截距项的选择敏感——选错形式可能导致错误结论</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>注意：ADF统计量越小（越负）越显著！与一般的t检验相反</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>过度差分（over-differencing）会使序列失去有用信息，引入不必要的自相关</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>差分后解释变量含义会变化——如价格差分后变成&quot;收益率&quot;</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>并非所有非平稳序列都适合差分——有些序列有确定性趋势，可以用去趋势处理</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>白噪声和独立同分布不是一回事——白噪声只要求不相关，不要求独立</div><div style="... [truncated]
+   347|</div>
+   348|<div class="section-card">
+   349|<div class="section-header" onclick="toggleSection(this)">
+   350|<span class="sec-title">协整与误差修正模型</span>
+   351|<span class="sec-arrow">▶</span>
+   352|</div>
+   353|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$Y_t = \beta_0 + \beta_1 X_t + u_t$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>F_t = 50 + 0.98S_t + u_t</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\Delta Y_t = \alpha + \gamma \cdot ECM_{t-1} + \sum_{i=1}^{p}\beta_i\Delta Y_{t-i} + \sum_{j=1}^{q}\delta_j\Delta X_{t-j} + \varepsilon_t$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>协整的前提是所有变量必须是同阶单整的（通常都是$I(1)$）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>协整关系是对称的——如果$Y_t$和$X_t$协整，那么$X_t$和$Y_t$也协整</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>协整检验对滞后阶数的选择敏感</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>Engle-Granger两步法第一步的OLS估计是超一致估计（收敛速度比普通OLS快）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>第二步的ADF检验必须使用Engle-Granger专用临界值，不能用标准DF临界值</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>EG两步法只能识别一个协整关系，如果有多个协整关系需要用Johansen检验</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>两个变量之间最多有一个协整关系，$k$个变量之间最多有$k-1$个协整关系</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>相关系数高不等于协整！两个完全不相关的随机游走也可能有高相关系数（伪相关）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>协整关系可能会发生结构性突变（如政策变化导致关系破裂）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>配对交易不是无风险的——存在协整关系破裂的风险</div></div>
+   354|</div>
+   355|<div class="section-card">
+   356|<div class="section-header" onclick="toggleSection(this)">
+   357|<span class="sec-title">总需求与总供给模型</span>
+   358|<span class="sec-arrow">▶</span>
+   359|</div>
+   360|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>短期AS曲线向右上倾斜的前提取决于&quot;粘性工资&quot;或&quot;粘性价格&quot;假设</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>长期AS曲线垂直意味着在长期中，财政政策和货币政策只能影响价格水平，不能影响实际产出</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>考试常考：石油价格冲击 → 成本推动 → SRAS左移 → 滞胀（产出↓、价格↑）</div></div>
+   361|</div>
+   362|<div class="section-card">
+   363|<div class="section-header" onclick="toggleSection(this)">
+   364|<span class="sec-title">美林投资时钟</span>
+   365|<span class="sec-arrow">▶</span>
+   366|</div>
+   367|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>投资时钟描述的是理想化的循环，实际中经济周期可能不完整或不按顺序</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>不同阶段的转折点难以精确判断——往往是事后才能确认</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>考试中常考&quot;某阶段最优资产&quot;的配对——必须牢记四个阶段的对应关系</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>&quot;滞胀&quot;阶段最特殊——股债双杀，只有现金最安全</div></div>
+   368|</div>
+   369|<div class="section-card">
+   370|<div class="section-header" onclick="toggleSection(this)">
+   371|<span class="sec-title">增长类指标</span>
+   372|<span class="sec-arrow">▶</span>
+   373|</div>
+   374|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$GDP = \sum 各产业增加值 = 总产出 - 中间投入$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>GDP = 劳动者报酬 + 生产税净额 + 固定资产折旧 + 营业盈余</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>GDP = C + I + G + (X - M)</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>实际GDP增速 = 名义GDP增速 - GDP平减指数增速</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>GDP核算的是&quot;最终产品&quot;（卖给最终使用者），不包括中间产品（卖给企业用于进一步加工的产品），否则会重复计算</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>支出法中$G$（政府购买）不包括转移支付（如养老金、失业救济），因为转移支付没有对应产品和服务产出</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>中国的GDP核算以生产法为主，同时用支出法和收入法进行校验</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>PMI是环比指标（对比上月），不是同比指标</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>PMI &gt; 50只表示经济在扩张，但不一定扩张很强（55以上才算强劲）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>官方PMI和财新PMI因样本不同可能有差异——官方偏重国企和大企业，财新偏重出口型中小企业</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>工业增加值是实际增速（已剔除价格），不是名义增速</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>规模以上企业的统计口径调整会影响数据的可比性</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>春节因素（1-2月数据通常合并发布）会影响同比增速的可比性</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</s... [truncated]
+   375|</div>
+   376|<div class="section-card">
+   377|<div class="section-header" onclick="toggleSection(this)">
+   378|<span class="sec-title">通胀类指标</span>
+   379|<span class="sec-arrow">▶</span>
+   380|</div>
+   381|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$i_t = r^* + \pi_t + 0.5(\pi_t - \pi^*) + 0.5(y_t - y^*)$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>不能因为核心CPI低就忽视CPI整体高——食品和能源通胀对居民实际生活影响很大</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>不同国家计算核心CPI的剔除项目不同（有些还剔除烟酒、通讯等）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>中国核心CPI长期处于低位（1-2%），反映了中国经济的总体需求偏弱</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>需求拉动型通胀通常伴随经济增长（过热），成本推动型通胀通常伴随经济下行（滞胀）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>区分两者对政策应对很重要——需求拉动型应紧缩，成本推动型政策上更棘手</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>&quot;通胀是债市最大的敌人&quot;——固定收益在通胀中实际价值缩水</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>防通缩（通胀过低）同样是央行的重要目标</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>中国的通胀目标通常为3%左右，比美国（2%）略高</div></div>
+   382|</div>
+   383|<div class="section-card">
+   384|<div class="section-header" onclick="toggleSection(this)">
+   385|<span class="sec-title">货币金融指标</span>
+   386|<span class="sec-arrow">▶</span>
+   387|</div>
+   388|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>M0 = 流通中的现金</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>M1 = M0 + 企业活期存款</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>M2 = M1 + 准货币</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$央行政策利率 \rightarrow 货币市场利率 \rightarrow 债券收益率 \rightarrow 贷款利率 \rightarrow 投资/消费 \rightarrow 产出/通胀$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>各国对M1/M2的定义不同，考试以中国教材为准</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>居民活期存款算在M2的准货币中，不算在M1中——只有企业活期存款才算在M1中</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>M1增速上通常与股市走势正相关</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>SHIBOR和LPR是不同类型的利率——SHIBOR是银行间拆借利率（短期），LPR是银行贷款利率（中长期）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>LPR下降不一定意味着房贷利率立即下降——还要看&quot;加点&quot;部分</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>社融和M2被称为&quot;中国货币政策的量价双重指标&quot;</div></div>
+   389|</div>
+   390|<div class="section-card">
+   391|<div class="section-header" onclick="toggleSection(this)">
+   392|<span class="sec-title">汇率指标</span>
+   393|<span class="sec-arrow">▶</span>
+   394|</div>
+   395|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>中间价 = 上一日收盘价 + 一篮子货币汇率变化 + 逆周期因子</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>人民币汇率参考的是&quot;一篮子货币&quot;（CFETS篮子），不是只盯美元</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>&quot;逆周期因子&quot;是稳定工具，不是长期干预方向</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>人民币汇率与大宗商品的关系不如美元指数强烈，但对中国进口依赖度高的商品影响较大</div></div>
+   396|</div>
+   397|<div class="section-card">
+   398|<div class="section-header" onclick="toggleSection(this)">
+   399|<span class="sec-title">股指期货定价</span>
+   400|<span class="sec-arrow">▶</span>
+   401|</div>
+   402|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>F = S × e^(r - q)T</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>若股息率高于无风险利率（q&gt;r），期货价格可能低于现货，出现反向市场</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>T必须换算为年，3个月=0.25年</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>离散复利公式：F = S × (1+r-q)^T，与连续复利结果略有差异</div></div>
+   403|</div>
+   404|<div class="section-card">
+   405|<div class="section-header" onclick="toggleSection(this)">
+   406|<span class="sec-title">期现套利</span>
+   407|<span class="sec-arrow">▶</span>
+   408|</div>
+   409|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>无套利区间上界 = F + C（套利成本）</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>套利成本包括：交易费用、冲击成本、跟踪误差、资金成本</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>正向套利和反向套利的操作方向不要记反：期货高估→卖期货买现货</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>程序化交易是期现套利的常见实现方式，利用计算机自动监控价差</div></div>
+   410|</div>
+   411|<div class="section-card">
+   412|<div class="section-header" onclick="toggleSection(this)">
+   413|<span class="sec-title">阿尔法策略</span>
+   414|<span class="sec-arrow">▶</span>
+   415|</div>
+   416|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>组合收益 = α + β × 市场收益 + ε</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>阿尔法策略的核心假设是选股能力（α持续为正），如果选股失败则策略失效</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>Beta值的稳定性很关键，Beta变化时需要动态调整对冲头寸</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>阿尔法策略也称为&quot;市场中性策略&quot;，因为消除了市场风险暴露</div></div>
+   417|</div>
+   418|<div class="section-card">
+   419|<div class="section-header" onclick="toggleSection(this)">
+   420|<span class="sec-title">Beta系数计算与应用</span>
+   421|<span class="sec-arrow">▶</span>
+   422|</div>
+   423|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>β = Cov(R_i, R_m) / Var(R_m) = ρ × σ_i / σ_m</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>其中R_i为个股收益率，R_m为市场收益率，ρ为相关系数</div></div>
+   424|</div>
+   425|<div class="section-card">
+   426|<div class="section-header" onclick="toggleSection(this)">
+   427|<span class="sec-title">国债价格与久期</span>
+   428|<span class="sec-arrow">▶</span>
+   429|</div>
+   430|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>修正久期 = 麦考利久期 / (1 + 到期收益率)</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>BPV（基点价值）= 债券价格 × 修正久期 × 0.01%</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>BPV/DV01：利率变动1bp(0.01%)时债券价格的变动金额。</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>ΔP/P ≈ -D_mod × Δy + (1/2) × Convexity × (Δy)²</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>凸性越大，利率下降时价格上涨的幅度 &gt; 利率上升时价格下跌的幅度（对投资者有利）。</div></div>
+   431|</div>
+   432|<div class="section-card">
+   433|<div class="section-header" onclick="toggleSection(this)">
+   434|<span class="sec-title">久期套期保值</span>
+   435|<span class="sec-arrow">▶</span>
+   436|</div>
+   437|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>套保比率 = 现货BPV / 期货BPV</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>其中：</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>套保比率计算的核心是BPV匹配而非金额匹配</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>期货BPV需要用CTD债券的久期除以转换因子</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>净基差 = 债券价格 - 期货价格 × 转换因子，用于判断CTD</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>套保后仍存在基差风险（期货与现货的价差波动）</div></div>
+   438|</div>
+   439|<div class="section-card">
+   440|<div class="section-header" onclick="toggleSection(this)">
+   441|<span class="sec-title">最便宜可交割债券(CTD)与转换因子</span>
+   442|<span class="sec-arrow">▶</span>
+   443|</div>
+   444|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>交割成本 = 债券价格 - 期货价格 × 转换因子</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>隐含回购利率（IRR）： 买入CTD债券并持有至期货交割日所获得的年化收益率。</div></div>
+   445|</div>
+   446|<div class="section-card">
+   447|<div class="section-header" onclick="toggleSection(this)">
+   448|<span class="sec-title">国债期货跨期套利</span>
+   449|<span class="sec-arrow">▶</span>
+   450|</div>
+   451|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>跨期套利与期现套利不同：跨期利用的是不同月份合约的价差，期现利用的是期货与现货的价差</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>蝶式套利是跨期套利的变种：同时买卖三个不同月份的合约</div></div>
+   452|</div>
+   453|<div class="section-card">
+   454|<div class="section-header" onclick="toggleSection(this)">
+   455|<span class="sec-title">汇率影响因素</span>
+   456|<span class="sec-arrow">▶</span>
+   457|</div>
+   458|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$E = \frac{P_d}{P_f}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\frac{E_t}{E_0} = \frac{P_{d,t}/P_{d,0}}{P_{f,t}/P_{f,0}}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\Delta E\% \approx \pi_d - \pi_f$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$F = S \times \frac{1 + i_d \times \frac{t}{360}}{1 + i_f \times \frac{t}{360}}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$F = S \times e^{(i_d - i_f)t}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$1 + i_d = \frac{F}{S}(1 + i_f) \Rightarrow F = S \times \frac{1 + i_d}{1 + i_f}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$\Delta E\% \approx 2.0\% - 4.5\% = -2.5\%$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$E_1 = 6.80 \times (1 - 2.5\%) = 6.80 \times 0.975 = 6.63$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$F = 7.20 \times \frac{1 + 3\% \times 180/360}{1 + 5\% \times 180/360} = 7.20 \times \frac{1.015}{1.025} = 7.20 \times 0.99024 = 7.13$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点1：直接标价法 vs 间接标价法</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点2：利率期限匹配</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点3：PPP是长期理论</div><div style="padding:8px 0;border-bottom:1px solid va... [truncated]
+   459|</div>
+   460|<div class="section-card">
+   461|<div class="section-header" onclick="toggleSection(this)">
+   462|<span class="sec-title">外汇远期与掉期</span>
+   463|<span class="sec-arrow">▶</span>
+   464|</div>
+   465|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$F = S \times \frac{1 + r_d \times \frac{T}{360}}{1 + r_f \times \frac{T}{360}}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$远期点数 = F - S = S \times \frac{(r_d - r_f) \times \frac{T}{360}}{1 + r_f \times \frac{T}{360}}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$F = 6.90 \times \frac{1 + 3.8\% \times 90/360}{1 + 2.5\% \times 90/360} = 6.90 \times \frac{1.0095}{1.00625} = 6.90 \times 1.00323 = 6.922$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点1：升水与贴水方向</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点2：掉期 = 两笔交易</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点3：掉期的&quot;期&quot;指期限</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点4：利率选取</div></div>
+   466|</div>
+   467|<div class="section-card">
+   468|<div class="section-header" onclick="toggleSection(this)">
+   469|<span class="sec-title">外汇期货套期保值</span>
+   470|<span class="sec-arrow">▶</span>
+   471|</div>
+   472|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$HR = \frac{现货头寸价值}{期货合约价值}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$HR^* = \rho \times \frac{\sigma_S}{\sigma_F}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$HR_{交叉} = HR^* \times \frac{目标货币金额}{合约货币金额}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点1：多头/空头方向判断</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点2：交叉套保需要调整比率</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点3：基差风险</div></div>
+   473|</div>
+   474|<div class="section-card">
+   475|<div class="section-header" onclick="toggleSection(this)">
+   476|<span class="sec-title">汇率衍生品在风险管理中的应用</span>
+   477|<span class="sec-arrow">▶</span>
+   478|</div>
+   479|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点1：期权方向选择</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点2：远期vs期权的成本比较</div></div>
+   480|</div>
+   481|<div class="section-card">
+   482|<div class="section-header" onclick="toggleSection(this)">
+   483|<span class="sec-title">远期（场外）</span>
+   484|<span class="sec-arrow">▶</span>
+   485|</div>
+   486|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点1：场外≠不正规</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点2：远期与期货的信用风险差异</div></div>
+   487|</div>
+   488|<div class="section-card">
+   489|<div class="section-header" onclick="toggleSection(this)">
+   490|<span class="sec-title">互换</span>
+   491|<span class="sec-arrow">▶</span>
+   492|</div>
+   493|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$V_{fixed} = \sum_{i=1}^{n} C \times DF(t_i) + 本金 \times DF(t_n)$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$V_{float} = 本金$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$V_{swap} = V_{float} - V_{fixed} \quad (收取浮动、支付固定)$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$PV_{保费} = s \times \sum_{i=1}^{n} DF(t_i) \times P_{存活}(t_i)$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$PV_{损失} = (1-R) \times \sum_{i=1}^{n} DF(t_i) \times P_{违约}(t_i)$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">📐</span>$$s = \frac{(1-R) \times \sum DF(t_i) \times P_{违约}(t_i)}{\sum DF(t_i) \times P_{存活}(t_i)}$$</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点1：IRS只交换利息，不交换本金</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点2：货币互换要交换本金</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点3：CDS不是保险</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点4：比较优势原理</div></div>
+   494|</div>
+   495|<div class="section-card">
+   496|<div class="section-header" onclick="toggleSection(this)">
+   497|<span class="sec-title">场外期权</span>
+   498|<span class="sec-arrow">▶</span>
+   499|</div>
+   500|<div class="section-body"><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点1：障碍期权的敲出风险</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点2：亚式期权的均价计算</div><div style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="margin-right:8px">💡</span>易错点3：场外期权的信用风险</div></div>
+   501|

@@ -1,0 +1,272 @@
+     1|<!DOCTYPE html>
+     2|<html lang="zh-CN">
+     3|<head>
+     4|<meta charset="UTF-8">
+     5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6|<title>期货投资分析考试 · 备考中心</title>
+     7|<style>/* ===== Exam Template - Universal CSS ===== */
+     8|/* 适用于所有备考站点：N1/期货/博士 */
+     9|
+    10|:root {
+    11|  --bg: #f0f2f5;
+    12|  --card-bg: #fff;
+    13|  --text: #333;
+    14|  --text-light: #888;
+    15|  --text-lighter: #aaa;
+    16|  --border: #e8e8e8;
+    17|  --hover: #f8f9fa;
+    18|  --shadow: rgba(0,0,0,0.08);
+    19|  --shadow-hover: rgba(0,0,0,0.12);
+    20|  --tag-bg: #f0f2f5;
+    21|  --tag-text: #666;
+    22|  --primary: #e74c3c;
+    23|  --primary-light: #fde8e8;
+    24|  --success: #2ecc71;
+    25|  --success-bg: #e8f8f0;
+    26|  --wrong: #e74c3c;
+    27|  --wrong-bg: #fde8e8;
+    28|  --header-from: #1a1a2e;
+    29|  --header-mid: #16213e;
+    30|  --header-to: #0f3460;
+    31|  --header-text: #f1f5f9;
+    32|  --header-sub: #aab8c2;
+    33|  --back-top-bg: #1a1a2e;
+    34|}
+    35|
+    36|body.dark {
+    37|  --bg: #12122a;
+    38|  --card-bg: #1e1e3a;
+    39|  --text: #d0d0e0;
+    40|  --text-light: #999;
+    41|  --text-lighter: #777;
+    42|  --border: #2a2a4a;
+    43|  --hover: #252545;
+    44|  --shadow: rgba(0,0,0,0.3);
+    45|  --shadow-hover: rgba(0,0,0,0.4);
+    46|  --tag-bg: #2a2a4a;
+    47|  --tag-text: #aaa;
+    48|  --primary: #e74c3c;
+    49|  --primary-light: #2a1a1a;
+    50|  --success: #27ae60;
+    51|  --success-bg: #1a2e22;
+    52|  --wrong: #e74c3c;
+    53|  --wrong-bg: #2a1a1a;
+    54|  --back-top-bg: #0f3460;
+    55|}
+    56|
+    57|* { margin: 0; padding: 0; box-sizing: border-box; }
+    58|body {
+    59|  font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+    60|  background: var(--bg);
+    61|  color: var(--text);
+    62|  transition: background 0.3s, color 0.3s;
+    63|  line-height: 1.6;
+    64|}
+    65|
+    66|/* ===== Header ===== */
+    67|.header {
+    68|  background: linear-gradient(135deg, var(--header-from), var(--header-mid), var(--header-to));
+    69|  color: var(--header-text);
+    70|  padding: 40px 20px;
+    71|  text-align: center;
+    72|  position: relative;
+    73|}
+    74|.header h1 { font-size: 1.8em; margin-bottom: 10px; }
+    75|.header p { color: var(--header-sub); font-size: 1em; margin-bottom: 8px; }
+    76|.header .subtitle { font-size: 0.9em; color: #7b8fa1; }
+    77|
+    78|/* ===== Theme Button ===== */
+    79|.theme-btn {
+    80|  position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+    81|  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25);
+    82|  color: rgba(255,255,255,.7); font-size: 1em; padding: 6px 12px;
+    83|  border-radius: 8px; cursor: pointer; transition: all 0.2s;
+    84|}
+    85|.theme-btn:hover { color: #fff; background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.4); }
+    86|
+    87|/* ===== Back Link ===== */
+    88|.back-link {
+    89|  position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+    90|  color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px;
+    91|  padding: 6px 12px; border: 1px solid rgba(255,255,255,.2);
+    92|  border-radius: 8px; transition: all 0.2s;
+    93|}
+    94|.back-link:hover { color: #fff; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.4); }
+    95|
+    96|/* ===== Container ===== */
+    97|.container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+    98|
+    99|/* ===== Entry Cards (Index) ===== */
+   100|.entries { display: flex; flex-direction: column; gap: 20px; }
+   101|.entry {
+   102|  background: var(--card-bg); border-radius: 16px; padding: 30px;
+   103|  text-align: center; box-shadow: 0 4px 16px var(--shadow);
+   104|  transition: all 0.3s; border: 2px solid transparent;
+   105|  cursor: pointer; text-decoration: none; color: var(--text);
+   106|}
+   107|.entry:hover { transform: translateY(-4px); box-shadow: 0 8px 32px var(--shadow-hover); border-color: var(--primary); }
+   108|.entry .icon { font-size: 2.5em; margin-bottom: 12px; display: block; }
+   109|.entry h2 { font-size: 1.4em; margin-bottom: 8px; font-weight: 600; }
+   110|.entry .desc { color: var(--text-light); font-size: 0.95em; line-height: 1.6; margin-bottom: 12px; }
+   111|.entry .stats { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+   112|.entry .stats span { background: var(--tag-bg); color: var(--tag-text); padding: 4px 12px; border-radius: 12px; font-size: 0.85em; }
+   113|
+   114|/* ===== Controls (Search + Filter) ===== */
+   115|.controls { padding: 16px 20px; max-width: 900px; margin: 0 auto; position: sticky; top: 0; z-index: 100; background: var(--bg); }
+   116|.search-box {
+   117|  width: 100%; padding: 12px 16px; border-radius: 12px;
+   118|  border: 1px solid var(--border); background: var(--card-bg);
+   119|  color: var(--text); font-size: 15px; outline: none;
+   120|}
+   121|.search-box:focus { border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,.15); }
+   122|.filter-btns { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+   123|.filter-btn {
+   124|  padding: 6px 16px; border-radius: 8px; border: 1px solid var(--border);
+   125|  background: var(--card-bg); color: var(--text-light); cursor: pointer; font-size: 13px;
+   126|  transition: all 0.2s;
+   127|}
+   128|.filter-btn.active { background: #3498db; color: #fff; border-color: #3498db; }
+   129|.filter-btn:hover:not(.active) { background: var(--hover); }
+   130|
+   131|/* ===== Chapter/Section Cards ===== */
+   132|.chapter-card { margin-bottom: 20px; }
+   133|.chapter-header {
+   134|  background: var(--card-bg); border-radius: 12px; padding: 16px 20px;
+   135|  cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+   136|  box-shadow: 0 2px 8px var(--shadow); border: 1px solid var(--border);
+   137|  transition: all 0.2s;
+   138|}
+   139|.chapter-header:hover { box-shadow: 0 4px 16px var(--shadow-hover); }
+   140|.chapter-header .ch-title { font-size: 1.15em; font-weight: 600; }
+   141|.chapter-header .ch-arrow { transition: transform 0.2s; color: var(--text-light); }
+   142|.chapter-card.open .ch-arrow { transform: rotate(90deg); }
+   143|.chapter-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+   144|.chapter-card.open .chapter-body { max-height: 200000px; }
+   145|
+   146|.section-card {
+   147|  background: var(--card-bg); border-radius: 10px; margin: 12px 0;
+   148|  border: 1px solid var(--border); overflow: hidden;
+   149|}
+   150|.section-header {
+   151|  padding: 14px 18px; cursor: pointer; display: flex;
+   152|  justify-content: space-between; align-items: center;
+   153|  border-bottom: 1px solid var(--border);
+   154|}
+   155|.section-header:hover { background: var(--hover); }
+   156|.section-header .sec-title { font-weight: 600; font-size: 1em; }
+   157|.section-header .sec-arrow { transition: transform 0.2s; color: var(--text-light); }
+   158|.section-card.open .sec-arrow { transform: rotate(90deg); }
+   159|.section-body { display: none; padding: 16px 18px; }
+   160|.section-card.open .section-body { display: block; }
+   161|
+   162|/* ===== Content Blocks ===== */
+   163|.content-block { margin-bottom: 16px; }
+   164|.content-block h4 { color: var(--primary); margin-bottom: 8px; font-size: 0.95em; }
+   165|.content-block p, .content-block li { line-height: 1.8; color: var(--text); }
+   166|.formula-box {
+   167|  background: var(--hover); border-left: 4px solid #3498db;
+   168|  padding: 12px 16px; border-radius: 6px; margin: 8px 0;
+   169|  font-family: "Courier New", monospace; font-size: 0.95em;
+   170|}
+   171|.tip-box {
+   172|  background: var(--primary-light); border-left: 4px solid var(--primary);
+   173|  padding: 12px 16px; border-radius: 6px; margin: 8px 0;
+   174|  font-size: 0.9em;
+   175|}
+   176|
+   177|/* ===== Question Blocks ===== */
+   178|.q-block {
+   179|  background: var(--card-bg); border: 1px solid var(--border);
+   180|  border-radius: 10px; padding: 16px; margin-bottom: 12px;
+   181|}
+   182|.q-text { font-weight: 500; margin-bottom: 12px; line-height: 1.6; }
+   183|.opts { display: flex; flex-direction: column; gap: 8px; }
+   184|.opt-btn {
+   185|  padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px;
+   186|  background: var(--card-bg); color: var(--text); cursor: pointer;
+   187|  text-align: left; transition: all 0.2s; font-size: 0.95em;
+   188|}
+   189|.opt-btn:hover:not(.disabled) { background: var(--hover); border-color: #3498db; }
+   190|.opt-btn.selected { background: rgba(52,152,219,0.15); color: #3498db; border-color: #3498db; }
+   191|.opt-btn.correct { background: var(--success-bg) !important; color: var(--success) !important; border-color: var(--success) !important; }
+   192|.opt-btn.wrong { background: var(--wrong-bg) !important; color: var(--wrong) !important; border-color: var(--wrong) !important; }
+   193|.opt-btn.disabled { cursor: default; opacity: 0.7; }
+   194|
+   195|.show-ans-btn {
+   196|  background: var(--primary); color: #fff; border: none;
+   197|  padding: 6px 16px; border-radius: 8px; font-size: 0.85em;
+   198|  cursor: pointer; margin-top: 10px; transition: all 0.2s;
+   199|}
+   200|.show-ans-btn:hover { opacity: 0.85; }
+   201|
+   202|.explanation {
+   203|  border-top: 1px solid var(--border); padding-top: 12px; margin-top: 12px;
+   204|  display: none; flex-wrap: wrap; gap: 8px; align-items: center;
+   205|  font-size: 0.9em; color: var(--text-light);
+   206|}
+   207|.explanation.show { display: flex; }
+   208|
+   209|/* ===== Stats Bar ===== */
+   210|.stats-bar {
+   211|  display: flex; gap: 20px; justify-content: center; padding: 12px;
+   212|  background: var(--card-bg); border-radius: 10px; margin-bottom: 16px;
+   213|  box-shadow: 0 2px 8px var(--shadow);
+   214|}
+   215|.stat-item { text-align: center; }
+   216|.stat-item .stat-label { font-size: 0.8em; color: var(--text-light); }
+   217|.stat-item .stat-val { font-size: 1.3em; font-weight: 700; color: var(--primary); }
+   218|
+   219|/* ===== Back to Top ===== */
+   220|.back-top {
+   221|  position: fixed; right: 20px; bottom: 24px;
+   222|  width: 44px; height: 44px; border-radius: 50%;
+   223|  border: none; background: var(--back-top-bg); color: #fff;
+   224|  font-size: 20px; cursor: pointer; opacity: 0;
+   225|  transition: opacity 0.3s; box-shadow: 0 2px 12px rgba(0,0,0,.3);
+   226|  z-index: 999;
+   227|}
+   228|
+   229|/* ===== Footer ===== */
+   230|.footer { text-align: center; padding: 20px; color: var(--text-light); font-size: 0.85em; }
+   231|
+   232|/* ===== Responsive ===== */
+   233|@media(max-width: 600px) {
+   234|  .header h1 { font-size: 1.4em; }
+   235|  .container { padding: 20px 12px; }
+   236|  .entry { padding: 20px; }
+   237|  .theme-btn { right: 12px; padding: 4px 8px; font-size: 14px; }
+   238|  .back-link { left: 12px; padding: 4px 8px; font-size: 12px; }
+   239|  .back-top { right: 12px; bottom: 16px; width: 38px; height: 38px; font-size: 18px; }
+   240|}
+   241|</style>
+   242|</head>
+   243|<body>
+   244|<div class="header">
+   245|<button class="theme-btn">🌙 主题</button>
+   246|<h1>期货投资分析考试 · 备考中心</h1>
+   247|<p>全面覆盖考试大纲 · 精选真题 · 核心考点背诵</p>
+   248|</div>
+   249|<div class="container">
+   250|<div class="entries">
+   251|<a class="entry" href="review.html">
+   252|<span class="icon">📚</span>
+   253|<h2>复习宝典</h2>
+   254|<p class="desc">12章完整精讲，涵盖概念详解、核心公式、计算案例、易错提醒和历年真题</p>
+   255|<div class="stats"><span>12章</span> <span>49节</span> <span>完整覆盖</span></div>
+   256|</a>
+   257|<a class="entry" href="practice.html">
+   258|<span class="icon">📝</span>
+   259|<h2>真题精练</h2>
+   260|<p class="desc">精选历年真题，互动式点击答题，即时反馈解析</p>
+   261|<div class="stats"><span>互动答题</span> <span>即时解析</span> <span>真题实战</span></div>
+   262|</a>
+   263|<a class="entry" href="memorize.html">
+   264|<span class="icon">🎯</span>
+   265|<h2>考前背诵</h2>
+   266|<p class="desc">核心考点速记，公式汇总，易错提醒</p>
+   267|<div class="stats"><span>核心考点</span> <span>快速回顾</span></div>
+   268|</a></div>
+   269|</div>
+   270|<div class="footer">© 2026 期货投资分析考试 · 备考中心</div>
+   271|<script src="template.js"></script>
+   272|</body></html>

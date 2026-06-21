@@ -1,0 +1,501 @@
+     1|<!DOCTYPE html>
+     2|<html lang="zh-CN">
+     3|<head>
+     4|<meta charset="UTF-8">
+     5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6|<title>期货投资分析考试 · 备考中心 · 真题精练</title>
+     7|<style>/* ===== Exam Template - Universal CSS ===== */
+     8|/* 适用于所有备考站点：N1/期货/博士 */
+     9|
+    10|:root {
+    11|  --bg: #f0f2f5;
+    12|  --card-bg: #fff;
+    13|  --text: #333;
+    14|  --text-light: #888;
+    15|  --text-lighter: #aaa;
+    16|  --border: #e8e8e8;
+    17|  --hover: #f8f9fa;
+    18|  --shadow: rgba(0,0,0,0.08);
+    19|  --shadow-hover: rgba(0,0,0,0.12);
+    20|  --tag-bg: #f0f2f5;
+    21|  --tag-text: #666;
+    22|  --primary: #e74c3c;
+    23|  --primary-light: #fde8e8;
+    24|  --success: #2ecc71;
+    25|  --success-bg: #e8f8f0;
+    26|  --wrong: #e74c3c;
+    27|  --wrong-bg: #fde8e8;
+    28|  --header-from: #1a1a2e;
+    29|  --header-mid: #16213e;
+    30|  --header-to: #0f3460;
+    31|  --header-text: #f1f5f9;
+    32|  --header-sub: #aab8c2;
+    33|  --back-top-bg: #1a1a2e;
+    34|}
+    35|
+    36|body.dark {
+    37|  --bg: #12122a;
+    38|  --card-bg: #1e1e3a;
+    39|  --text: #d0d0e0;
+    40|  --text-light: #999;
+    41|  --text-lighter: #777;
+    42|  --border: #2a2a4a;
+    43|  --hover: #252545;
+    44|  --shadow: rgba(0,0,0,0.3);
+    45|  --shadow-hover: rgba(0,0,0,0.4);
+    46|  --tag-bg: #2a2a4a;
+    47|  --tag-text: #aaa;
+    48|  --primary: #e74c3c;
+    49|  --primary-light: #2a1a1a;
+    50|  --success: #27ae60;
+    51|  --success-bg: #1a2e22;
+    52|  --wrong: #e74c3c;
+    53|  --wrong-bg: #2a1a1a;
+    54|  --back-top-bg: #0f3460;
+    55|}
+    56|
+    57|* { margin: 0; padding: 0; box-sizing: border-box; }
+    58|body {
+    59|  font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+    60|  background: var(--bg);
+    61|  color: var(--text);
+    62|  transition: background 0.3s, color 0.3s;
+    63|  line-height: 1.6;
+    64|}
+    65|
+    66|/* ===== Header ===== */
+    67|.header {
+    68|  background: linear-gradient(135deg, var(--header-from), var(--header-mid), var(--header-to));
+    69|  color: var(--header-text);
+    70|  padding: 40px 20px;
+    71|  text-align: center;
+    72|  position: relative;
+    73|}
+    74|.header h1 { font-size: 1.8em; margin-bottom: 10px; }
+    75|.header p { color: var(--header-sub); font-size: 1em; margin-bottom: 8px; }
+    76|.header .subtitle { font-size: 0.9em; color: #7b8fa1; }
+    77|
+    78|/* ===== Theme Button ===== */
+    79|.theme-btn {
+    80|  position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+    81|  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25);
+    82|  color: rgba(255,255,255,.7); font-size: 1em; padding: 6px 12px;
+    83|  border-radius: 8px; cursor: pointer; transition: all 0.2s;
+    84|}
+    85|.theme-btn:hover { color: #fff; background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.4); }
+    86|
+    87|/* ===== Back Link ===== */
+    88|.back-link {
+    89|  position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+    90|  color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px;
+    91|  padding: 6px 12px; border: 1px solid rgba(255,255,255,.2);
+    92|  border-radius: 8px; transition: all 0.2s;
+    93|}
+    94|.back-link:hover { color: #fff; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.4); }
+    95|
+    96|/* ===== Container ===== */
+    97|.container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+    98|
+    99|/* ===== Entry Cards (Index) ===== */
+   100|.entries { display: flex; flex-direction: column; gap: 20px; }
+   101|.entry {
+   102|  background: var(--card-bg); border-radius: 16px; padding: 30px;
+   103|  text-align: center; box-shadow: 0 4px 16px var(--shadow);
+   104|  transition: all 0.3s; border: 2px solid transparent;
+   105|  cursor: pointer; text-decoration: none; color: var(--text);
+   106|}
+   107|.entry:hover { transform: translateY(-4px); box-shadow: 0 8px 32px var(--shadow-hover); border-color: var(--primary); }
+   108|.entry .icon { font-size: 2.5em; margin-bottom: 12px; display: block; }
+   109|.entry h2 { font-size: 1.4em; margin-bottom: 8px; font-weight: 600; }
+   110|.entry .desc { color: var(--text-light); font-size: 0.95em; line-height: 1.6; margin-bottom: 12px; }
+   111|.entry .stats { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+   112|.entry .stats span { background: var(--tag-bg); color: var(--tag-text); padding: 4px 12px; border-radius: 12px; font-size: 0.85em; }
+   113|
+   114|/* ===== Controls (Search + Filter) ===== */
+   115|.controls { padding: 16px 20px; max-width: 900px; margin: 0 auto; position: sticky; top: 0; z-index: 100; background: var(--bg); }
+   116|.search-box {
+   117|  width: 100%; padding: 12px 16px; border-radius: 12px;
+   118|  border: 1px solid var(--border); background: var(--card-bg);
+   119|  color: var(--text); font-size: 15px; outline: none;
+   120|}
+   121|.search-box:focus { border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,.15); }
+   122|.filter-btns { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+   123|.filter-btn {
+   124|  padding: 6px 16px; border-radius: 8px; border: 1px solid var(--border);
+   125|  background: var(--card-bg); color: var(--text-light); cursor: pointer; font-size: 13px;
+   126|  transition: all 0.2s;
+   127|}
+   128|.filter-btn.active { background: #3498db; color: #fff; border-color: #3498db; }
+   129|.filter-btn:hover:not(.active) { background: var(--hover); }
+   130|
+   131|/* ===== Chapter/Section Cards ===== */
+   132|.chapter-card { margin-bottom: 20px; }
+   133|.chapter-header {
+   134|  background: var(--card-bg); border-radius: 12px; padding: 16px 20px;
+   135|  cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+   136|  box-shadow: 0 2px 8px var(--shadow); border: 1px solid var(--border);
+   137|  transition: all 0.2s;
+   138|}
+   139|.chapter-header:hover { box-shadow: 0 4px 16px var(--shadow-hover); }
+   140|.chapter-header .ch-title { font-size: 1.15em; font-weight: 600; }
+   141|.chapter-header .ch-arrow { transition: transform 0.2s; color: var(--text-light); }
+   142|.chapter-card.open .ch-arrow { transform: rotate(90deg); }
+   143|.chapter-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+   144|.chapter-card.open .chapter-body { max-height: 200000px; }
+   145|
+   146|.section-card {
+   147|  background: var(--card-bg); border-radius: 10px; margin: 12px 0;
+   148|  border: 1px solid var(--border); overflow: hidden;
+   149|}
+   150|.section-header {
+   151|  padding: 14px 18px; cursor: pointer; display: flex;
+   152|  justify-content: space-between; align-items: center;
+   153|  border-bottom: 1px solid var(--border);
+   154|}
+   155|.section-header:hover { background: var(--hover); }
+   156|.section-header .sec-title { font-weight: 600; font-size: 1em; }
+   157|.section-header .sec-arrow { transition: transform 0.2s; color: var(--text-light); }
+   158|.section-card.open .sec-arrow { transform: rotate(90deg); }
+   159|.section-body { display: none; padding: 16px 18px; }
+   160|.section-card.open .section-body { display: block; }
+   161|
+   162|/* ===== Content Blocks ===== */
+   163|.content-block { margin-bottom: 16px; }
+   164|.content-block h4 { color: var(--primary); margin-bottom: 8px; font-size: 0.95em; }
+   165|.content-block p, .content-block li { line-height: 1.8; color: var(--text); }
+   166|.formula-box {
+   167|  background: var(--hover); border-left: 4px solid #3498db;
+   168|  padding: 12px 16px; border-radius: 6px; margin: 8px 0;
+   169|  font-family: "Courier New", monospace; font-size: 0.95em;
+   170|}
+   171|.tip-box {
+   172|  background: var(--primary-light); border-left: 4px solid var(--primary);
+   173|  padding: 12px 16px; border-radius: 6px; margin: 8px 0;
+   174|  font-size: 0.9em;
+   175|}
+   176|
+   177|/* ===== Question Blocks ===== */
+   178|.q-block {
+   179|  background: var(--card-bg); border: 1px solid var(--border);
+   180|  border-radius: 10px; padding: 16px; margin-bottom: 12px;
+   181|}
+   182|.q-text { font-weight: 500; margin-bottom: 12px; line-height: 1.6; }
+   183|.opts { display: flex; flex-direction: column; gap: 8px; }
+   184|.opt-btn {
+   185|  padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px;
+   186|  background: var(--card-bg); color: var(--text); cursor: pointer;
+   187|  text-align: left; transition: all 0.2s; font-size: 0.95em;
+   188|}
+   189|.opt-btn:hover:not(.disabled) { background: var(--hover); border-color: #3498db; }
+   190|.opt-btn.selected { background: rgba(52,152,219,0.15); color: #3498db; border-color: #3498db; }
+   191|.opt-btn.correct { background: var(--success-bg) !important; color: var(--success) !important; border-color: var(--success) !important; }
+   192|.opt-btn.wrong { background: var(--wrong-bg) !important; color: var(--wrong) !important; border-color: var(--wrong) !important; }
+   193|.opt-btn.disabled { cursor: default; opacity: 0.7; }
+   194|
+   195|.show-ans-btn {
+   196|  background: var(--primary); color: #fff; border: none;
+   197|  padding: 6px 16px; border-radius: 8px; font-size: 0.85em;
+   198|  cursor: pointer; margin-top: 10px; transition: all 0.2s;
+   199|}
+   200|.show-ans-btn:hover { opacity: 0.85; }
+   201|
+   202|.explanation {
+   203|  border-top: 1px solid var(--border); padding-top: 12px; margin-top: 12px;
+   204|  display: none; flex-wrap: wrap; gap: 8px; align-items: center;
+   205|  font-size: 0.9em; color: var(--text-light);
+   206|}
+   207|.explanation.show { display: flex; }
+   208|
+   209|/* ===== Stats Bar ===== */
+   210|.stats-bar {
+   211|  display: flex; gap: 20px; justify-content: center; padding: 12px;
+   212|  background: var(--card-bg); border-radius: 10px; margin-bottom: 16px;
+   213|  box-shadow: 0 2px 8px var(--shadow);
+   214|}
+   215|.stat-item { text-align: center; }
+   216|.stat-item .stat-label { font-size: 0.8em; color: var(--text-light); }
+   217|.stat-item .stat-val { font-size: 1.3em; font-weight: 700; color: var(--primary); }
+   218|
+   219|/* ===== Back to Top ===== */
+   220|.back-top {
+   221|  position: fixed; right: 20px; bottom: 24px;
+   222|  width: 44px; height: 44px; border-radius: 50%;
+   223|  border: none; background: var(--back-top-bg); color: #fff;
+   224|  font-size: 20px; cursor: pointer; opacity: 0;
+   225|  transition: opacity 0.3s; box-shadow: 0 2px 12px rgba(0,0,0,.3);
+   226|  z-index: 999;
+   227|}
+   228|
+   229|/* ===== Footer ===== */
+   230|.footer { text-align: center; padding: 20px; color: var(--text-light); font-size: 0.85em; }
+   231|
+   232|/* ===== Responsive ===== */
+   233|@media(max-width: 600px) {
+   234|  .header h1 { font-size: 1.4em; }
+   235|  .container { padding: 20px 12px; }
+   236|  .entry { padding: 20px; }
+   237|  .theme-btn { right: 12px; padding: 4px 8px; font-size: 14px; }
+   238|  .back-link { left: 12px; padding: 4px 8px; font-size: 12px; }
+   239|  .back-top { right: 12px; bottom: 16px; width: 38px; height: 38px; font-size: 18px; }
+   240|}
+   241|</style>
+   242|</head>
+   243|<body>
+   244|<div class="header">
+   245|<a class="back-link" href="index.html">← 返回</a>
+   246|<button class="theme-btn">🌙 主题</button>
+   247|<h1>📝 真题精练</h1>
+   248|<p>互动答题 · 显示答案按钮 · 即时解析</p>
+   249|</div>
+   250|<div class="container">
+   251|<div class="stats-bar">
+   252|<div class="stat-item"><div class="stat-label">已做</div><div class="stat-val" id="stat-done">0</div></div>
+   253|<div class="stat-item"><div class="stat-label">正确</div><div class="stat-val" id="stat-correct">0</div></div>
+   254|<div class="stat-item"><div class="stat-label">正确率</div><div class="stat-val" id="stat-rate">0%</div></div>
+   255|</div>
+   256|
+   257|<div class="q-block" id="qblock-ch01-sec01-q0">
+   258|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第一章 商品期货及衍生品分析与应用 · 1.1 供需平衡表分析</div>
+   259|<div class="q-text">在供需平衡表中，若期末库存增加，通常意味着（ ）。</div>
+   260|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch01-sec01-q0')">A. 供不应求</button><button class="opt-btn" onclick="selectOption(this,2,'ch01-sec01-q0')">B. 供过于求</button><button class="opt-btn" onclick="selectOption(this,3,'ch01-sec01-q0')">C. 供需平衡</button><button class="opt-btn" onclick="selectOption(this,4,'ch01-sec01-q0')">D. 无法判断</button></div>
+   261|<button class="show-ans-btn" id="sbtn-ch01-sec01-q0" onclick="revealAnswer('ch01-sec01-q0',2)">显示答案</button>
+   262|<div class="explanation" id="exp-ch01-sec01-q0"><span style="color:var(--success)">✅ 正确答案：B</span></div>
+   263|</div>
+   264|<div class="q-block" id="qblock-ch01-sec01-q1">
+   265|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第一章 商品期货及衍生品分析与应用 · 1.1 供需平衡表分析</div>
+   266|<div class="q-text">供需平衡表中的消费量是指国内实际消费量，不包括出口。</div>
+   267|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch01-sec01-q1')">A. 正确</button><button class="opt-btn" onclick="selectOption(this,2,'ch01-sec01-q1')">B. 错误</button></div>
+   268|<button class="show-ans-btn" id="sbtn-ch01-sec01-q1" onclick="revealAnswer('ch01-sec01-q1',1)">显示答案</button>
+   269|<div class="explanation" id="exp-ch01-sec01-q1"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   270|</div>
+   271|<div class="q-block" id="qblock-ch01-sec02-q0">
+   272|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第一章 商品期货及衍生品分析与应用 · 1.2 成本端影响因素</div>
+   273|<div class="q-text">成本端影响因素是商品价格的底部支撑。</div>
+   274|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch01-sec02-q0')">A. 正确</button><button class="opt-btn" onclick="selectOption(this,2,'ch01-sec02-q0')">B. 错误</button></div>
+   275|<button class="show-ans-btn" id="sbtn-ch01-sec02-q0" onclick="revealAnswer('ch01-sec02-q0',1)">显示答案</button>
+   276|<div class="explanation" id="exp-ch01-sec02-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   277|</div>
+   278|<div class="q-block" id="qblock-ch01-sec03-q0">
+   279|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第一章 商品期货及衍生品分析与应用 · 1.3 基差交易与基差定价</div>
+   280|<div class="q-text">基差交易是指以（ ）加上或减去协商基差来确定现货价格。</div>
+   281|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch01-sec03-q0')">A. 期货价格</button><button class="opt-btn" onclick="selectOption(this,2,'ch01-sec03-q0')">B. 现货价格</button><button class="opt-btn" onclick="selectOption(this,3,'ch01-sec03-q0')">C. 协商价格</button><button class="opt-btn" onclick="selectOption(this,4,'ch01-sec03-q0')">D. 固定价格</button></div>
+   282|<button class="show-ans-btn" id="sbtn-ch01-sec03-q0" onclick="revealAnswer('ch01-sec03-q0',1)">显示答案</button>
+   283|<div class="explanation" id="exp-ch01-sec03-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   284|</div>
+   285|<div class="q-block" id="qblock-ch01-sec03-q1">
+   286|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第一章 商品期货及衍生品分析与应用 · 1.3 基差交易与基差定价</div>
+   287|<div class="q-text">当（ ）时，买入套期保值可实现盈亏完全相抵。</div>
+   288|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch01-sec03-q1')">A. 基差走强</button><button class="opt-btn" onclick="selectOption(this,2,'ch01-sec03-q1')">B. 基差不变</button><button class="opt-btn" onclick="selectOption(this,3,'ch01-sec03-q1')">C. 基差走弱</button><button class="opt-btn" onclick="selectOption(this,4,'ch01-sec03-q1')">D. 无法确定</button></div>
+   289|<button class="show-ans-btn" id="sbtn-ch01-sec03-q1" onclick="revealAnswer('ch01-sec03-q1',1)">显示答案</button>
+   290|<div class="explanation" id="exp-ch01-sec03-q1"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   291|</div>
+   292|<div class="q-block" id="qblock-ch01-sec03-q2">
+   293|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第一章 商品期货及衍生品分析与应用 · 1.3 基差交易与基差定价</div>
+   294|<div class="q-text">下列表示基差走弱的有（ ）。</div>
+   295|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch01-sec03-q2')">A. 4→2</button><button class="opt-btn" onclick="selectOption(this,2,'ch01-sec03-q2')">B. 2→1</button><button class="opt-btn" onclick="selectOption(this,3,'ch01-sec03-q2')">C. -2→-4</button><button class="opt-btn" onclick="selectOption(this,4,'ch01-sec03-q2')">D. -2→-1</button></div>
+   296|<button class="show-ans-btn" id="sbtn-ch01-sec03-q2" onclick="revealAnswer('ch01-sec03-q2',1)">显示答案</button>
+   297|<div class="explanation" id="exp-ch01-sec03-q2"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   298|</div>
+   299|<div class="q-block" id="qblock-ch01-sec06-q0">
+   300|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第一章 商品期货及衍生品分析与应用 · 1.6 商品资产配置价值</div>
+   301|<div class="q-text">商品期货具备抗通胀、分散风险的配置价值。</div>
+   302|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch01-sec06-q0')">A. 正确</button><button class="opt-btn" onclick="selectOption(this,2,'ch01-sec06-q0')">B. 错误</button></div>
+   303|<button class="show-ans-btn" id="sbtn-ch01-sec06-q0" onclick="revealAnswer('ch01-sec06-q0',1)">显示答案</button>
+   304|<div class="explanation" id="exp-ch01-sec06-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   305|</div>
+   306|<div class="q-block" id="qblock-ch02-sec03-q0">
+   307|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第二章 期货及衍生品定价 · 2.3 Black-Scholes-Merton模型</div>
+   308|<div class="q-text">BS模型中N(d₂)表示（ ）。 B. Delta</div>
+   309|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch02-sec03-q0')">A. 期权被执行概率</button><button class="opt-btn" onclick="selectOption(this,2,'ch02-sec03-q0')">B. Gamma</button><button class="opt-btn" onclick="selectOption(this,3,'ch02-sec03-q0')">C. 波动率</button></div>
+   310|<button class="show-ans-btn" id="sbtn-ch02-sec03-q0" onclick="revealAnswer('ch02-sec03-q0',1)">显示答案</button>
+   311|<div class="explanation" id="exp-ch02-sec03-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   312|</div>
+   313|<div class="q-block" id="qblock-ch02-sec04-q0">
+   314|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第二章 期货及衍生品定价 · 2.4 二叉树定价模型</div>
+   315|<div class="q-text">二叉树模型可用于定价（ ）。</div>
+   316|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch02-sec04-q0')">A. 仅欧式</button><button class="opt-btn" onclick="selectOption(this,2,'ch02-sec04-q0')">B. 仅美式</button><button class="opt-btn" onclick="selectOption(this,3,'ch02-sec04-q0')">C. 欧式和美式</button><button class="opt-btn" onclick="selectOption(this,4,'ch02-sec04-q0')">D. 仅亚式</button></div>
+   317|<button class="show-ans-btn" id="sbtn-ch02-sec04-q0" onclick="revealAnswer('ch02-sec04-q0',1)">显示答案</button>
+   318|<div class="explanation" id="exp-ch02-sec04-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   319|</div>
+   320|<div class="q-block" id="qblock-ch02-sec06-q0">
+   321|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第二章 期货及衍生品定价 · 2.6 波动率</div>
+   322|<div class="q-text">隐含波动率是指（ ）。</div>
+   323|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch02-sec06-q0')">A. 基于历史数据计算</button><button class="opt-btn" onclick="selectOption(this,2,'ch02-sec06-q0')">B. 由期权市价反推</button><button class="opt-btn" onclick="selectOption(this,3,'ch02-sec06-q0')">C. 收益率的方差</button><button class="opt-btn" onclick="selectOption(this,4,'ch02-sec06-q0')">D. 无风险利率</button></div>
+   324|<button class="show-ans-btn" id="sbtn-ch02-sec06-q0" onclick="revealAnswer('ch02-sec06-q0',1)">显示答案</button>
+   325|<div class="explanation" id="exp-ch02-sec06-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   326|</div>
+   327|<div class="q-block" id="qblock-ch03-sec01-q0">
+   328|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 描述性统计</div>
+   329|<div class="q-text">在描述统计中，下列哪种情况说明数据呈右偏分布？ D. 中位数 &gt; 均值 &gt; 众数 &gt;答案：B</div>
+   330|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec01-q0')">A. 均值 = 中位数 = 众数</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec01-q0')">B. 均值 &gt; 中位数 &gt; 众数</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec01-q0')">C. 均值 &lt; 中位数 &lt; 众数</button></div>
+   331|<button class="show-ans-btn" id="sbtn-ch03-sec01-q0" onclick="revealAnswer('ch03-sec01-q0',1)">显示答案</button>
+   332|<div class="explanation" id="exp-ch03-sec01-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   333|</div>
+   334|<div class="q-block" id="qblock-ch03-sec02-q0">
+   335|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 推断性统计</div>
+   336|<div class="q-text">在假设检验中，关于p值的描述下列哪个是正确的？ D. p值越大，越有理由拒绝原假设 &gt;答案：C</div>
+   337|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec02-q0')">A. p值表示原假设为真的概率</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec02-q0')">B. p值表示备择假设为真的概率</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec02-q0')">C. p值越小，越有理由拒绝原假设</button></div>
+   338|<button class="show-ans-btn" id="sbtn-ch03-sec02-q0" onclick="revealAnswer('ch03-sec02-q0',1)">显示答案</button>
+   339|<div class="explanation" id="exp-ch03-sec02-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   340|</div>
+   341|<div class="q-block" id="qblock-ch03-sec02-q1">
+   342|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 推断性统计</div>
+   343|<div class="q-text">关于置信区间和假设检验的关系，下列表述正确的有（ ）。 D. 显著性水平越高，置信区间越窄 &gt;答案：ABD</div>
+   344|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec02-q1')">A. 置信区间可以用于检验假设</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec02-q1')">B. 若原假设中的参数值落在置信区间内，则不能拒绝原假设</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec02-q1')">C. 置信水平越高，区间越窄</button></div>
+   345|<button class="show-ans-btn" id="sbtn-ch03-sec02-q1" onclick="revealAnswer('ch03-sec02-q1',1)">显示答案</button>
+   346|<div class="explanation" id="exp-ch03-sec02-q1"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   347|</div>
+   348|<div class="q-block" id="qblock-ch03-sec03-q0">
+   349|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 一元线性回归</div>
+   350|<div class="q-text">在一元线性回归中，回归系数的t统计量是3.5，则对应的F统计量是（ ）。 D. 12.25 &gt;答案：D</div>
+   351|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec03-q0')">A. 1.87</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec03-q0')">B. 3.50</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec03-q0')">C. 7.00</button></div>
+   352|<button class="show-ans-btn" id="sbtn-ch03-sec03-q0" onclick="revealAnswer('ch03-sec03-q0',1)">显示答案</button>
+   353|<div class="explanation" id="exp-ch03-sec03-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   354|</div>
+   355|<div class="q-block" id="qblock-ch03-sec03-q1">
+   356|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 一元线性回归</div>
+   357|<div class="q-text">在一元线性回归模型中，若$R^2 = 0.64$，则自变量和因变量之间的相关系数可能是（ ）。 D. 0.80 &gt;答案：D</div>
+   358|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec03-q1')">A. 0.36</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec03-q1')">B. 0.40</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec03-q1')">C. 0.64</button></div>
+   359|<button class="show-ans-btn" id="sbtn-ch03-sec03-q1" onclick="revealAnswer('ch03-sec03-q1',1)">显示答案</button>
+   360|<div class="explanation" id="exp-ch03-sec03-q1"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   361|</div>
+   362|<div class="q-block" id="qblock-ch03-sec03-q2">
+   363|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 一元线性回归</div>
+   364|<div class="q-text">在一元线性回归中，如果t检验显著，则F检验一定显著。（ ） &gt;答案：√（正确）</div>
+   365|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec03-q2')">A. 正确</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec03-q2')">B. 错误</button></div>
+   366|<button class="show-ans-btn" id="sbtn-ch03-sec03-q2" onclick="revealAnswer('ch03-sec03-q2',1)">显示答案</button>
+   367|<div class="explanation" id="exp-ch03-sec03-q2"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   368|</div>
+   369|<div class="q-block" id="qblock-ch03-sec04-q0">
+   370|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 多元线性回归</div>
+   371|<div class="q-text">在多元线性回归中，方差膨胀因子（VIF）用于诊断（ ）。 D. 非正态性 &gt;答案：C</div>
+   372|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec04-q0')">A. 异方差</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec04-q0')">B. 自相关</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec04-q0')">C. 多重共线性</button></div>
+   373|<button class="show-ans-btn" id="sbtn-ch03-sec04-q0" onclick="revealAnswer('ch03-sec04-q0',1)">显示答案</button>
+   374|<div class="explanation" id="exp-ch03-sec04-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   375|</div>
+   376|<div class="q-block" id="qblock-ch03-sec04-q1">
+   377|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 多元线性回归</div>
+   378|<div class="q-text">在回归分析中，Durbin-Watson统计量接近于2时，表明（ ）。 D. 存在多重共线性 &gt;答案：C</div>
+   379|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec04-q1')">A. 存在正自相关</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec04-q1')">B. 存在负自相关</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec04-q1')">C. 不存在一阶自相关</button></div>
+   380|<button class="show-ans-btn" id="sbtn-ch03-sec04-q1" onclick="revealAnswer('ch03-sec04-q1',1)">显示答案</button>
+   381|<div class="explanation" id="exp-ch03-sec04-q1"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   382|</div>
+   383|<div class="q-block" id="qblock-ch03-sec04-q2">
+   384|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 多元线性回归</div>
+   385|<div class="q-text">异方差的存在会导致（ ）。 D. 模型预测效率降低 &gt;答案：BCD</div>
+   386|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec04-q2')">A. OLS估计量有偏</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec04-q2')">B. t检验失效</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec04-q2')">C. 标准误估计不准确</button></div>
+   387|<button class="show-ans-btn" id="sbtn-ch03-sec04-q2" onclick="revealAnswer('ch03-sec04-q2',1)">显示答案</button>
+   388|<div class="explanation" id="exp-ch03-sec04-q2"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   389|</div>
+   390|<div class="q-block" id="qblock-ch03-sec05-q0">
+   391|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 时间序列分析</div>
+   392|<div class="q-text">如果时间序列$Y_t$满足$Y_t = Y_{t-1} + \varepsilon_t$，其中$\varepsilon_t$为白噪声，则该序列（ ）。 A. 平稳 D. 方差恒定 &gt;答案：B</div>
+   393|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec05-q0')">A. 平稳</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec05-q0')">B. 存在单位根</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec05-q0')">C. 是白噪声</button></div>
+   394|<button class="show-ans-btn" id="sbtn-ch03-sec05-q0" onclick="revealAnswer('ch03-sec05-q0',1)">显示答案</button>
+   395|<div class="explanation" id="exp-ch03-sec05-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   396|</div>
+   397|<div class="q-block" id="qblock-ch03-sec05-q1">
+   398|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 时间序列分析</div>
+   399|<div class="q-text">对某时间序列进行ADF检验，ADF统计量为0.32，5%显著性水平临界值为-2.86，结论是（ ）。 D. 序列不存在单位根 &gt;答案：B</div>
+   400|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec05-q1')">A. 序列在5%水平平稳</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec05-q1')">B. 序列在5%水平非平稳</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec05-q1')">C. 无法判断</button></div>
+   401|<button class="show-ans-btn" id="sbtn-ch03-sec05-q1" onclick="revealAnswer('ch03-sec05-q1',1)">显示答案</button>
+   402|<div class="explanation" id="exp-ch03-sec05-q1"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   403|</div>
+   404|<div class="q-block" id="qblock-ch03-sec05-q2">
+   405|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 时间序列分析</div>
+   406|<div class="q-text">如果一组时间序列数据的残差是白噪声，说明该模型已经充分提取了数据中的信息。（ ） &gt;答案：√（正确）</div>
+   407|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec05-q2')">A. 正确</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec05-q2')">B. 错误</button></div>
+   408|<button class="show-ans-btn" id="sbtn-ch03-sec05-q2" onclick="revealAnswer('ch03-sec05-q2',1)">显示答案</button>
+   409|<div class="explanation" id="exp-ch03-sec05-q2"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   410|</div>
+   411|<div class="q-block" id="qblock-ch03-sec05-q3">
+   412|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 时间序列分析</div>
+   413|<div class="q-text">下列哪些方法可以使非平稳时间序列变为平稳？（ ） A. 差分 D. 增加样本量 &gt;答案：ABC</div>
+   414|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec05-q3')">A. 差分</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec05-q3')">B. 取对数</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec05-q3')">C. 取对数后再差分</button></div>
+   415|<button class="show-ans-btn" id="sbtn-ch03-sec05-q3" onclick="revealAnswer('ch03-sec05-q3',1)">显示答案</button>
+   416|<div class="explanation" id="exp-ch03-sec05-q3"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   417|</div>
+   418|<div class="q-block" id="qblock-ch03-sec06-q0">
+   419|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 协整与误差修正模型</div>
+   420|<div class="q-text">关于协整关系，下列描述正确的是（ ）。 D. 协整检验可以用普通的t检验 &gt;答案：B</div>
+   421|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec06-q0')">A. 只有平稳序列之间才可能存在协整关系</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec06-q0')">B. 协整关系意味着变量之间存在长期稳定的均衡关系</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec06-q0')">C. 协整的存在意味着变量之间没有相关性</button></div>
+   422|<button class="show-ans-btn" id="sbtn-ch03-sec06-q0" onclick="revealAnswer('ch03-sec06-q0',1)">显示答案</button>
+   423|<div class="explanation" id="exp-ch03-sec06-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   424|</div>
+   425|<div class="q-block" id="qblock-ch03-sec06-q1">
+   426|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 协整与误差修正模型</div>
+   427|<div class="q-text">Engle-Granger两步法的两个步骤包括（ ）。 C. 建立VAR模型 D. 计算Granger因果检验 &gt;答案：AB</div>
+   428|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec06-q1')">A. 用OLS估计长期均衡关系</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec06-q1')">B. 对残差进行平稳性检验</button></div>
+   429|<button class="show-ans-btn" id="sbtn-ch03-sec06-q1" onclick="revealAnswer('ch03-sec06-q1',1)">显示答案</button>
+   430|<div class="explanation" id="exp-ch03-sec06-q1"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   431|</div>
+   432|<div class="q-block" id="qblock-ch03-sec06-q2">
+   433|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第三章 统计与计量分析 · 协整与误差修正模型</div>
+   434|<div class="q-text">配对交易策略的理论基础是（ ）。 D. 资产收益的正态分布 &gt;答案：B</div>
+   435|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch03-sec06-q2')">A. 资产价格的随机游走</button><button class="opt-btn" onclick="selectOption(this,2,'ch03-sec06-q2')">B. 价差的均值回复特性</button><button class="opt-btn" onclick="selectOption(this,3,'ch03-sec06-q2')">C. 市场的完全有效</button></div>
+   436|<button class="show-ans-btn" id="sbtn-ch03-sec06-q2" onclick="revealAnswer('ch03-sec06-q2',1)">显示答案</button>
+   437|<div class="explanation" id="exp-ch03-sec06-q2"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   438|</div>
+   439|<div class="q-block" id="qblock-ch04-sec01-q0">
+   440|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第四章 宏观经济分析与指标 · 总需求与总供给模型</div>
+   441|<div class="q-text">下列哪一项是总需求曲线向右下倾斜的原因？（ ） D. 边际产量递减 &gt;答案：B</div>
+   442|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch04-sec01-q0')">A. 规模报酬递减</button><button class="opt-btn" onclick="selectOption(this,2,'ch04-sec01-q0')">B. 财富效应</button><button class="opt-btn" onclick="selectOption(this,3,'ch04-sec01-q0')">C. 边际效用递减</button></div>
+   443|<button class="show-ans-btn" id="sbtn-ch04-sec01-q0" onclick="revealAnswer('ch04-sec01-q0',1)">显示答案</button>
+   444|<div class="explanation" id="exp-ch04-sec01-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   445|</div>
+   446|<div class="q-block" id="qblock-ch04-sec01-q1">
+   447|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第四章 宏观经济分析与指标 · 总需求与总供给模型</div>
+   448|<div class="q-text">长期总供给曲线是垂直的，因为（ ）。 D. 长期内政府不干预经济 &gt;答案：B</div>
+   449|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch04-sec01-q1')">A. 长期内经济始终处于充分就业</button><button class="opt-btn" onclick="selectOption(this,2,'ch04-sec01-q1')">B. 长期内货币是中性的</button><button class="opt-btn" onclick="selectOption(this,3,'ch04-sec01-q1')">C. 长期内总需求不变</button></div>
+   450|<button class="show-ans-btn" id="sbtn-ch04-sec01-q1" onclick="revealAnswer('ch04-sec01-q1',1)">显示答案</button>
+   451|<div class="explanation" id="exp-ch04-sec01-q1"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   452|</div>
+   453|<div class="q-block" id="qblock-ch04-sec01-q2">
+   454|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第四章 宏观经济分析与指标 · 总需求与总供给模型</div>
+   455|<div class="q-text">下列因素中，能使总需求曲线向右移动的有（ ）。 D. 居民预期未来收入增加 &gt;答案：ABD</div>
+   456|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch04-sec01-q2')">A. 央行降低基准利率</button><button class="opt-btn" onclick="selectOption(this,2,'ch04-sec01-q2')">B. 政府增加基础设施投资</button><button class="opt-btn" onclick="selectOption(this,3,'ch04-sec01-q2')">C. 国外经济衰退</button></div>
+   457|<button class="show-ans-btn" id="sbtn-ch04-sec01-q2" onclick="revealAnswer('ch04-sec01-q2',1)">显示答案</button>
+   458|<div class="explanation" id="exp-ch04-sec01-q2"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   459|</div>
+   460|<div class="q-block" id="qblock-ch04-sec02-q0">
+   461|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第四章 宏观经济分析与指标 · 美林投资时钟</div>
+   462|<div class="q-text">根据美林投资时钟理论，当经济处于&quot;过热&quot;阶段时，最优的资产配置是（ ）。 A. 股票 B. 债券 D. 现金 &gt;答案：C</div>
+   463|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch04-sec02-q0')">A. 股票</button><button class="opt-btn" onclick="selectOption(this,2,'ch04-sec02-q0')">B. 债券</button><button class="opt-btn" onclick="selectOption(this,3,'ch04-sec02-q0')">C. 大宗商品</button></div>
+   464|<button class="show-ans-btn" id="sbtn-ch04-sec02-q0" onclick="revealAnswer('ch04-sec02-q0',1)">显示答案</button>
+   465|<div class="explanation" id="exp-ch04-sec02-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   466|</div>
+   467|<div class="q-block" id="qblock-ch04-sec02-q1">
+   468|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第四章 宏观经济分析与指标 · 美林投资时钟</div>
+   469|<div class="q-text">经济处于衰退阶段，通胀持续下行，根据美林投资时钟，应优先配置（ ）。 A. 股票 B. 债券 C. 商品 D. 现金 &gt;答案：B</div>
+   470|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch04-sec02-q1')">A. 股票</button><button class="opt-btn" onclick="selectOption(this,2,'ch04-sec02-q1')">B. 债券</button><button class="opt-btn" onclick="selectOption(this,3,'ch04-sec02-q1')">C. 商品</button></div>
+   471|<button class="show-ans-btn" id="sbtn-ch04-sec02-q1" onclick="revealAnswer('ch04-sec02-q1',1)">显示答案</button>
+   472|<div class="explanation" id="exp-ch04-sec02-q1"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   473|</div>
+   474|<div class="q-block" id="qblock-ch04-sec02-q2">
+   475|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第四章 宏观经济分析与指标 · 美林投资时钟</div>
+   476|<div class="q-text">美林投资时钟中，&quot;滞胀&quot;阶段的特征包括（ ）。 D. 大宗商品价格大幅下跌 &gt;答案：ABC</div>
+   477|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch04-sec02-q2')">A. 经济增速下行</button><button class="opt-btn" onclick="selectOption(this,2,'ch04-sec02-q2')">B. 通货膨胀上行</button><button class="opt-btn" onclick="selectOption(this,3,'ch04-sec02-q2')">C. 股票和债券市场表现均不佳</button></div>
+   478|<button class="show-ans-btn" id="sbtn-ch04-sec02-q2" onclick="revealAnswer('ch04-sec02-q2',1)">显示答案</button>
+   479|<div class="explanation" id="exp-ch04-sec02-q2"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   480|</div>
+   481|<div class="q-block" id="qblock-ch04-sec02-q3">
+   482|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第四章 宏观经济分析与指标 · 美林投资时钟</div>
+   483|<div class="q-text">美林投资时钟的四个阶段依次是衰退、复苏、过热、滞胀，呈顺时针循环。（ ） &gt;答案：√（正确）</div>
+   484|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch04-sec02-q3')">A. 正确</button><button class="opt-btn" onclick="selectOption(this,2,'ch04-sec02-q3')">B. 错误</button></div>
+   485|<button class="show-ans-btn" id="sbtn-ch04-sec02-q3" onclick="revealAnswer('ch04-sec02-q3',1)">显示答案</button>
+   486|<div class="explanation" id="exp-ch04-sec02-q3"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   487|</div>
+   488|<div class="q-block" id="qblock-ch04-sec03-q0">
+   489|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第四章 宏观经济分析与指标 · 增长类指标</div>
+   490|<div class="q-text">PMI指数以（ ）作为经济扩张与收缩的荣枯分水线。 A. 45 B. 50 C. 55 D. 100 &gt;答案：B</div>
+   491|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch04-sec03-q0')">A. 45</button><button class="opt-btn" onclick="selectOption(this,2,'ch04-sec03-q0')">B. 50</button><button class="opt-btn" onclick="selectOption(this,3,'ch04-sec03-q0')">C. 55</button></div>
+   492|<button class="show-ans-btn" id="sbtn-ch04-sec03-q0" onclick="revealAnswer('ch04-sec03-q0',1)">显示答案</button>
+   493|<div class="explanation" id="exp-ch04-sec03-q0"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   494|</div>
+   495|<div class="q-block" id="qblock-ch04-sec03-q1">
+   496|<div style="font-size:0.8em;color:var(--text-light);margin-bottom:6px">第四章 宏观经济分析与指标 · 增长类指标</div>
+   497|<div class="q-text">下列指标中，属于滞后经济指标的是（ ）。 D. 失业率 &gt;答案：D</div>
+   498|<div class="opts"><button class="opt-btn" onclick="selectOption(this,1,'ch04-sec03-q1')">A. PMI</button><button class="opt-btn" onclick="selectOption(this,2,'ch04-sec03-q1')">B. 工业增加值</button><button class="opt-btn" onclick="selectOption(this,3,'ch04-sec03-q1')">C. 消费者信心指数</button></div>
+   499|<button class="show-ans-btn" id="sbtn-ch04-sec03-q1" onclick="revealAnswer('ch04-sec03-q1',1)">显示答案</button>
+   500|<div class="explanation" id="exp-ch04-sec03-q1"><span style="color:var(--success)">✅ 正确答案：A</span></div>
+   501|
